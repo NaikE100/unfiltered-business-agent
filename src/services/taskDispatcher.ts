@@ -1,5 +1,5 @@
-import { supabase } from '../config/db';
-import { logAgentAction } from './logger';
+import { supabase } from '../config/db.js';
+import { logAgentAction } from './logger.js';
 
 export interface TaskPayload {
     title: string;
@@ -15,7 +15,7 @@ export async function createAgentTask(task: TaskPayload) {
             {
                 title: task.title,
                 category: task.category,
-                payload: task.payloadload || {},
+                payload: task.payload || {},
                 status: 'pending',
             },
         ])
